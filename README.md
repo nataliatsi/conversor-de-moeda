@@ -9,6 +9,8 @@ O Conversor de Moeda oferece as seguintes funcionalidades:
 - Interação textual via console com os usuários.
 - Taxas de conversão dinâmicas obtidas através da API ExchangeRate-API.
 - Registro das conversões realizadas em arquivos JSON.
+- Registro de logs das conversões realizadas, incluindo informações sobre as moedas convertidas e o momento da conversão.
+
 
 ## Exemplo de Interação do Usuário
 Aqui está um exemplo de interação do usuário ao executar o programa:

@@ -28,9 +28,9 @@ public class Conversor {
         }
     }
 
-    public ConversorEmPares converter(String moedaOrigem, String moedaDestino, double quantidade) {
+    public ConversorEmPares converter(String moedaOrigem, String moedaDestino, double valor) {
         String urlApi = "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/" + moedaOrigem + "/" + moedaDestino
-                + "/" + quantidade;
+                + "/" + valor;
 
         try {
             URI uri = URI.create(urlApi);
@@ -52,7 +52,7 @@ public class Conversor {
             System.out.println("---------------------------");
             System.out.printf("%-18s: %s\n", "Moeda de origem", conversorEmPares.getMoedaOrigem());
             System.out.printf("%-18s: %s\n", "Moeda de destino", conversorEmPares.getMoedaDestino());
-            System.out.printf("%-18s: %.2f\n", "Quantidade", quantidade);
+            System.out.printf("%-18s: %.2f\n", "Quantidade", valor);
             System.out.printf("%-18s: %.4f\n", "Taxa de câmbio", conversorEmPares.getTaxaConversao());
             System.out.printf("%-18s: %.2f\n", "Valor convertido", conversorEmPares.getResultadoConversao());
             System.out.println("---------------------------");

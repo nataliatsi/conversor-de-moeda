@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.nexteducation.api.Conversor;
 import com.nexteducation.api.ConversorEmPares;
 import com.nexteducation.util.GeradorDeArquivo;
+import com.nexteducation.util.logs.RegistroDeLogs;
 
 import java.util.List;
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class Main {
 
         String moedaOrigem;
         String moedaDestino;
-        double quantidade;
+        double valor;
 
         Conversor conversor = new Conversor();
         List<ConversorEmPares> conversoes = new ArrayList<>();
@@ -29,13 +30,15 @@ public class Main {
             System.out.print("Digite a moeda de destino (3 caracteres): ");
             moedaDestino = scanner.nextLine().toUpperCase();
 
-            System.out.print("Digite a quantidade: ");
-            quantidade = scanner.nextDouble();
+            System.out.print("Digite a valor: ");
+            valor = scanner.nextDouble();
 
             scanner.nextLine();
 
-            ConversorEmPares conversao = conversor.converter(moedaOrigem, moedaDestino, quantidade);
+            ConversorEmPares conversao = conversor.converter(moedaOrigem, moedaDestino, valor);
             conversoes.add(conversao);
+
+            RegistroDeLogs.registrarConversoes(conversoes);
 
             System.out.print("Deseja fazer outra conversão? (1 - Sim, 0 - Não): ");
             entrada = scanner.nextInt();
