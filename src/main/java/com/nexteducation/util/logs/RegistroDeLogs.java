@@ -23,7 +23,7 @@ public class RegistroDeLogs {
             for (ConversorEmPares conversao : conversoes) {
                 writer.println("Moeda de origem: " + conversao.getMoedaOrigem());
                 writer.println("Moeda de destino: " + conversao.getMoedaDestino());
-                writer.println("Taxa de câmbio: " + conversao.getTaxaConversao());
+                writer.println("Taxa de câmbio: " + conversao.getTaxaDeCambio());
                 writer.println("Valor convertido: " + conversao.getResultadoConversao());
                 writer.println();
             }

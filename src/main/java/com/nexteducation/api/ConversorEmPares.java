@@ -1,24 +1,31 @@
 package com.nexteducation.api;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ConversorEmPares {
-    private String base_code, target_code;
-    private double conversion_rate;
-    private double conversion_result;
+    @SerializedName("base_code")
+    private String moedaOrigem;
+    @SerializedName("target_code")
+    private String moedaDestino;
+    @SerializedName("conversion_rate")
+    private double taxaCambio;
+    @SerializedName("conversion_result")
+    private double valorConvertido;
 
     public String getMoedaOrigem(){
-        return base_code;
+        return moedaOrigem;
     }
 
     public String getMoedaDestino(){
-        return target_code;
+        return moedaDestino;
     }
 
-    public double getTaxaConversao() {
-        return conversion_rate;
+    public double getTaxaDeCambio() {
+        return taxaCambio;
     }
 
     public double getResultadoConversao() {
-        return conversion_result;
+        return valorConvertido;
     }
 
 }

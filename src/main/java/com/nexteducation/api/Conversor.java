@@ -1,7 +1,8 @@
 package com.nexteducation.api;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.nexteducation.api.ConversorEmPares;
+import com.google.gson.GsonBuilder;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -46,14 +47,15 @@ public class Conversor {
                 throw new RuntimeException("Erro ao acessar a API: " + response.statusCode());
             }
 
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                    .create();
             ConversorEmPares conversorEmPares = gson.fromJson(response.body(), ConversorEmPares.class);
 
             System.out.println("---------------------------");
             System.out.printf("%-18s: %s\n", "Moeda de origem", conversorEmPares.getMoedaOrigem());
             System.out.printf("%-18s: %s\n", "Moeda de destino", conversorEmPares.getMoedaDestino());
             System.out.printf("%-18s: %.2f\n", "Quantidade", valor);
-            System.out.printf("%-18s: %.4f\n", "Taxa de câmbio", conversorEmPares.getTaxaConversao());
+            System.out.printf("%-18s: %.4f\n", "Taxa de câmbio", conversorEmPares.getTaxaDeCambio());
             System.out.printf("%-18s: %.2f\n", "Valor convertido", conversorEmPares.getResultadoConversao());
             System.out.println("---------------------------");
 
